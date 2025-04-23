@@ -508,15 +508,20 @@ td.delete .dropdown>a .caret {
 
 fieldset>div,
 .history-table>tbody>tr:nth-of-type(odd),
+.table-messages>tbody>tr:nth-of-type(odd),
 .table-striped>tbody>tr:nth-of-type(odd) {
   background: var(--transparency-dark-25) !important;
 }
 
 fieldset>div.even,
-  /* fieldset>div:nth-of-type(odd), */
 .history-table>tbody>tr:nth-of-type(even),
+.table-messages>tbody>tr:nth-of-type(even),
 .table-striped>tbody>tr:nth-of-type(even) {
   background: transparent !important;
+}
+
+.table-messages-remove {
+  background: var(--transparency-dark-05) !important;
 }
 
 tbody.no-downloads tr td {
