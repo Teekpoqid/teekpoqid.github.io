@@ -688,14 +688,14 @@ tr td.row-extra-text,
 
 .form-control {
   color: var(--text-hover);
-  background: var(--transparency-dark-25);
+  background: var(--transparency-dark-25) !important;
 }
 
 .form-control:focus {
-  border-color: var(--text-hover);
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  background: #1b1b1b;
+  border-color: var(--text-hover) !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  background: #1b1b1b !important;
 }
 
 /*Tabbed sorting */
