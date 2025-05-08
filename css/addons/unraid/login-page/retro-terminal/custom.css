@@ -6,23 +6,23 @@
 
 @import url(/css/addons/unraid/login-page/retro-terminal/retro-terminal-base.css);
 :root {
---main-bg-color:black;
+--main-bg-color:MediumSlateBlue;
 --body-before:#70d7f61a;
 --body-after: #70d7f633;
 --body-animation: flicker;
---logo: url(/css/addons/unraid/login-page/alien/logo/wings_shadow.png) center no-repeat;
---text-color: #ffffff;
---input-color: #ffffff;
---link-color: #ffffff;
+--logo: url(https://imgur.com/zmlhDSV) center no-repeat;
+--text-color: #660066;
+--input-color: #660066;
+--link-color: #660066;
 --link-color-hover: #8f2809;
---case-color: #ffffff;
---button-text-color: #ffffff;
+--case-color: #660066;
+--button-text-color: #660066;
 --button-text-color-hover: #000;
---button-color: #ffffff;
+--button-color: #660066;
 --button-color-hover: #af0606;
 --selection-color: #8f2809;
---custom-text-header:#ffffff;
---custom-text-header-shadow:#ffffff;
+--custom-text-header:#660066;
+--custom-text-header-shadow:#660066;
 --custom-text-header-animation: textflicker;
 --input-font: 'Share Tech Mono', monospace;
 --text-font: 'Share Tech Mono', monospace;
