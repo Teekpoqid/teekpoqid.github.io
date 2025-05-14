@@ -403,7 +403,7 @@ a:hover {
     color: var(--text-hover);
 }
 
-[class*="Label-default-"] {
+[class*="Label-default-"]:not([class*="MovieDetails-detailsInfoLabel-"]) {
     border-color: rgb(var(--accent-color));
     background-color: rgb(var(--accent-color));
     color: var(--label-text-color);

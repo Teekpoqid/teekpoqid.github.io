@@ -55,9 +55,9 @@
 
 /* LABLES */
 
-[class*="Label-default-"] {
-    border-color: var(--label-color);
-    background-color: var(--label-color);
+[class*="Label-default-"]:not([class*="MovieDetails-detailsInfoLabel-"]) {
+    border-color: rgb(var(--accent-color));
+    background-color: rgb(var(--accent-color));
     color: var(--label-text-color);
 }
 
