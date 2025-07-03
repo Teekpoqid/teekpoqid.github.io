@@ -120,24 +120,30 @@ do
     clean_file $fname
 done
 
-if ! grep -q "WebUI\\\RootFolder" "${APP_FILEPATH}"; then
-    echo '--------------------------------------'
-    echo '| Adding WebUI\RootFolder=/themepark |'
-    echo '--------------------------------------'
-    sed -i -e '$aWebUI\\RootFolder=/themepark' "${APP_FILEPATH}";
-fi
+if ! grep -q "WebUI\\\RootFolder" "${APP_FILEPATH}" || ! grep -q "WebUI\\\AlternativeUIEnabled" "${APP_FILEPATH}"; then
+    if ! grep -q "^\[Preferences\]" "${APP_FILEPATH}"; then
+        printf '\n%s\n' "[Preferences]" >> "${APP_FILEPATH}"
+    fi
 
-if ! grep -q "WebUI\\\AlternativeUIEnabled" "${APP_FILEPATH}"; then
-    echo '------------------------------------------'
-    echo '| Adding WebUI\AlternativeUIEnabled=true |'
-    echo '------------------------------------------'
-    sed -i -e '$aWebUI\\AlternativeUIEnabled=true' "${APP_FILEPATH}";
+    if ! grep -q "WebUI\\\RootFolder" "${APP_FILEPATH}"; then
+        echo '--------------------------------------'
+        echo '| Adding WebUI\RootFolder=/themepark |'
+        echo '--------------------------------------'
+        sed -i -e '/\[Preferences\]/aWebUI\\RootFolder=/themepark' "${APP_FILEPATH}"
+    fi
+
+    if ! grep -q "WebUI\\\AlternativeUIEnabled" "${APP_FILEPATH}"; then
+        echo '------------------------------------------'
+        echo '| Adding WebUI\AlternativeUIEnabled=true |'
+        echo '------------------------------------------'
+        sed -i -e '/\[Preferences\]/aWebUI\\AlternativeUIEnabled=true' "${APP_FILEPATH}"
+    fi
 fi
 
 if  ! grep -q "WebUI\\\RootFolder=/themepark" "${APP_FILEPATH}" || ! grep -q "WebUI\\\AlternativeUIEnabled=true" "${APP_FILEPATH}"; then
     echo '-------------------------------------------------------'
     echo '| Updating RootFolder and AlternativeUIEnabled values |'
     echo '-------------------------------------------------------'
-    sed -i "s/WebUI\\\AlternativeUIEnabled=.*$/WebUI\\\AlternativeUIEnabled=true/g" "${APP_FILEPATH}";
-    sed -i "s/WebUI\\\RootFolder=.*$/WebUI\\\RootFolder=\/themepark/g" "${APP_FILEPATH}";
+    sed -i "s/WebUI\\\AlternativeUIEnabled=.*$/WebUI\\\AlternativeUIEnabled=true/g" "${APP_FILEPATH}"
+    sed -i "s/WebUI\\\RootFolder=.*$/WebUI\\\RootFolder=\/themepark/g" "${APP_FILEPATH}"
 fi
