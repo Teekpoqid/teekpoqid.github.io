@@ -75,3 +75,26 @@
     moveUptimeToFooter();
   });
 })();
+
+const removeFooterCopyright = () => {
+  const footer = document.querySelector("#footer");
+  if (!footer) return;
+
+  const spanElements = footer.querySelectorAll("span");
+  spanElements.forEach((el) => {
+    if (
+      el.textContent.includes("Unraid") ||
+      el.textContent.includes("Lime Technology") ||
+      el.textContent.toLowerCase().includes("manual")
+    ) {
+      el.remove(); // Completely remove the element
+    }
+  });
+};
+
+window.addEventListener("DOMContentLoaded", () => {
+  modifyHeader();
+  moveUptimeToFooter();
+  removeFooterCopyright(); // Add this
+});
+
