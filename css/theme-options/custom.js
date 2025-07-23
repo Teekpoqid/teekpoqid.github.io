@@ -1,21 +1,77 @@
-// Example: Hide uptime info inside shadow DOM
-const hideUptime = () => {
-  const userProfile = document.querySelector('unraid-user-profile');
-  if (userProfile?.shadowRoot) {
-    const target = userProfile.shadowRoot.querySelector('p[title^="Server Up Since"]');
-    if (target) {
-      target.style.display = 'none';
-    }
-  }
-};
+(function () {
+  const CUSTOM_LOGO_URL = "https://teekpoqid.github.io/resources/ap.jpg"; // Change this
 
-// Try to apply after the page loads
-window.addEventListener('DOMContentLoaded', () => {
-  const interval = setInterval(() => {
-    const el = document.querySelector('unraid-user-profile');
-    if (el?.shadowRoot) {
-      hideUptime();
-      clearInterval(interval);
+  const waitForElement = (selector, root = document, timeout = 10000) =>
+    new Promise((resolve, reject) => {
+      const interval = 100;
+      let elapsed = 0;
+      const timer = setInterval(() => {
+        const element = root.querySelector(selector);
+        if (element) {
+          clearInterval(timer);
+          resolve(element);
+        }
+        elapsed += interval;
+        if (elapsed >= timeout) {
+          clearInterval(timer);
+          reject(`Timeout waiting for: ${selector}`);
+        }
+      }, interval);
+    });
+
+  const modifyHeader = async () => {
+    // Remove header logo and link
+    const header = document.querySelector("#header");
+    if (header) header.style.display = "none";
+
+    // Add custom logo elsewhere (optional)
+    const newLogo = document.createElement("img");
+    newLogo.src = CUSTOM_LOGO_URL;
+    newLogo.alt = "My Logo";
+    newLogo.style.height = "32px";
+    newLogo.style.marginRight = "12px";
+
+    // Add to footer
+    const footer = document.querySelector("#footer");
+    if (footer) {
+      footer.prepend(newLogo);
     }
-  }, 500);
-});
+  };
+
+  const moveUptimeToFooter = async () => {
+    const userProfileEl = await waitForElement("unraid-user-profile");
+
+    const attemptMove = () => {
+      const shadow = userProfileEl.shadowRoot;
+      if (!shadow) return false;
+
+      const uptimeP = shadow.querySelector('p[title^="Server Up Since"]');
+      const footer = document.querySelector("#footer");
+
+      if (uptimeP && footer && !document.getElementById("custom-uptime")) {
+        const cloned = uptimeP.cloneNode(true);
+        cloned.id = "custom-uptime";
+        cloned.style.marginLeft = "auto";
+        cloned.style.fontSize = "12px";
+        cloned.style.color = "#aaa";
+        footer.appendChild(cloned);
+        return true;
+      }
+      return false;
+    };
+
+    const maxAttempts = 30;
+    let attempts = 0;
+    const interval = setInterval(() => {
+      if (attemptMove() || attempts++ > maxAttempts) {
+        clearInterval(interval);
+      }
+    }, 300);
+  };
+
+  // Kick everything off
+  window.addEventListener("DOMContentLoaded", () => {
+    modifyHeader();
+    moveUptimeToFooter();
+  });
+})();
