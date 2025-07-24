@@ -1,5 +1,5 @@
 (function () {
-  const CUSTOM_LOGO_URL = "https://teekpoqid.github.io/resources/ap.jpg"; // Change this
+  const CUSTOM_LOGO_URL = ""; // Change this
 
   const waitForElement = (selector, root = document, timeout = 10000) =>
     new Promise((resolve, reject) => {
