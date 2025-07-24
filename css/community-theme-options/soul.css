@@ -1,6 +1,6 @@
 :root {
-  --main-bg-color: radial-gradient(ellipse at center bottom, rgba(255, 153, 0, .2) 0%, #3c0015 80%, rgba(0, 0, 0, .2) 100%) center center/cover no-repeat fixed,
-    url(/resources/ap.jpg) center center/contain no-repeat fixed;
+  --main-bg-color: background: #000000 center center/cover no-repeat local,
+    url(/resources/ap.jpg) center center/contain no-repeat local;
   --modal-bg-color: linear-gradient(180deg, rgba(140, 64, 2, 1) 0%, #3c0015 100%) center center/contain no-repeat fixed;
   --modal-header-color: linear-gradient(180deg, rgba(140, 64, 2, 1) 0%, #3c0015 100%) center center/cover no-repeat fixed;
   --modal-footer-color: linear-gradient(180deg, rgba(140, 64, 2, 1) 0%, #3c0015 100%) center center/cover no-repeat fixed;
@@ -24,17 +24,25 @@
 
   /* Remove header spacing and adjust layout after removing header */
 #header {
-  display: none !important;
+	display:  none !important
 }
 
-#main {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
+.content.shift {
+	transform: translateY(-100px) !important;
+}
+.nav-ftile {
+	transform: translateY(-90px) !important;
+}
+.frame {
+	transform: translateY(-100px) !important;
 }
 
-body {
-  padding-top: 0 !important;
-  margin-top: 0 !important;
+.searchArea {
+	display: none
+}
+#menu {	
+	position: fixed !important;
+	top: 0px !important;
 }
 
     /*Specials*/
