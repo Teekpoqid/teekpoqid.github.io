@@ -1,6 +1,6 @@
 :root {
-  --main-bg-color: background: #000000,
-    url(/resources/ap.jpg) center center/contain no-repeat local;
+  --main-bg-color: background: #000000  center center/contain no-repeat fixed,
+    url(/resources/ap.jpg) center center/contain no-repeat ;
   --modal-bg-color: linear-gradient(180deg, rgba(140, 64, 2, 1) 0%, #3c0015 100%) center center/contain no-repeat fixed;
   --modal-header-color: linear-gradient(180deg, rgba(140, 64, 2, 1) 0%, #3c0015 100%) center center/cover no-repeat fixed;
   --modal-footer-color: linear-gradient(180deg, rgba(140, 64, 2, 1) 0%, #3c0015 100%) center center/cover no-repeat fixed;
