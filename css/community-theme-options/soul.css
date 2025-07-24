@@ -22,6 +22,21 @@
   --text-hover: #fff;
   --text-muted: #999;
 
+  /* Remove header spacing and adjust layout after removing header */
+#header {
+  display: none !important;
+}
+
+#main {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+body {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
     /*Specials*/
   --arr-queue-color: rgb(255, 153, 0); /* Servarr apps + Bazarr*/
   --plex-poster-unwatched: #880030;
