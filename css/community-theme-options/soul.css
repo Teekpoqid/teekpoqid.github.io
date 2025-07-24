@@ -33,16 +33,6 @@
 	z-index: 10000;
 	background-color: rgba(0, 0, 0, 0.7);
 }
-/* Push main content down */
-#content, .main, .content {
-	padding-top: 90px !important;
-}
-/* Remove any hacky transforms */
-.content.shift,
-.nav-ftile,
-.frame {
-	transform: none !important;
-}
 
     /*Specials*/
   --arr-queue-color: rgb(255, 153, 0); /* Servarr apps + Bazarr*/
