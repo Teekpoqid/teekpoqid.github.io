@@ -22,27 +22,26 @@
   --text-hover: #fff;
   --text-muted: #999;
 
-  /* Remove header spacing and adjust layout after removing header */
 #header {
-	display:  none !important
+	display: none !important;
 }
-
-.content.shift {
-	transform: translateY(-100px) !important;
-}
-.nav-ftile {
-	transform: translateY(-90px) !important;
-}
-.frame {
-	transform: translateY(-100px) !important;
-}
-
-.searchArea {
-	display: none
-}
-#menu {	
+#menu {
 	position: fixed !important;
-	top: 0px !important;
+	top: 0 !important;
+	left: 0;
+	right: 0;
+	z-index: 10000;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+/* Push main content down */
+#content, .main, .content {
+	padding-top: 90px !important;
+}
+/* Remove any hacky transforms */
+.content.shift,
+.nav-ftile,
+.frame {
+	transform: none !important;
 }
 
     /*Specials*/
